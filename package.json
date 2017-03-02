@@ -1,0 +1,20 @@
+{
+  "name": "increase-memory-limit",
+  "version": "1.0.0",
+  "description": "Increase memory limit for local node binaries ('max-old-space-size')",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "increase-memory-limit": "index.js"
+  },
+  "publishConfig":{
+    "registry": "https://registry.npmjs.org/"
+  },
+  "author": "Endel Dreyer",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.1"
+  }
+}
