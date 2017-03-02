@@ -1,6 +1,6 @@
 {
   "name": "increase-memory-limit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Increase memory limit for local node binaries ('max-old-space-size')",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,10 @@
   },
   "bin": {
     "increase-memory-limit": "index.js"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/endel/increase-memory-limit.git"
   },
   "publishConfig":{
     "registry": "https://registry.npmjs.org/"
