@@ -6,13 +6,25 @@ const fs = require('fs');
 const maxOldSpaceSice = process.env.LIMIT || 10240;
 const cwd = process.cwd() + path.sep;
 
-glob(path.join(cwd, "node_modules", ".bin", "*"), function(err, files) {
+glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
 
   files.forEach(file => {
     let contents = fs.readFileSync(file).toString();
-    contents = contents.replace(/node\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/gm, `node --max-old-space-size=${ maxOldSpaceSice }`);
-    fs.writeFileSync(file, contents);
-    console.log(`'${ file.replace(cwd, "") }'`, "written successfully.");
+    let lines = contents.split('\n')
+
+    let patchedContents = "";
+
+    for (var index = 0; index < lines.length; index++) {
+      var line = lines[index];
+      if (line.startsWith("if [") || line.startsWith("@IF")) {
+        patchedContents += line + "\n";
+      } else {
+        patchedContents += line.replace(/node\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/, `node --max-old-space-size=${maxOldSpaceSice}`) + "\n";
+      }
+    }
+
+    fs.writeFileSync(file, patchedContents);
+    console.log(`'${file.replace(cwd, "")}'`, "written successfully.");
   });
 
 });
