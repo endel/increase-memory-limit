@@ -1,6 +1,6 @@
 {
   "name": "increase-memory-limit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Increase memory limit for local node binaries ('max-old-space-size')",
   "main": "index.js",
   "scripts": {
