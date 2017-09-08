@@ -9,6 +9,11 @@ const cwd = process.cwd() + path.sep;
 glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
 
   files.forEach(file => {
+    // readFileSync will crash on non-files. Skip over these
+    let stat = fs.lstatSync(fs.realpathSync(file));
+    if (!stat.isFile()) {
+      return;
+    }
     let contents = fs.readFileSync(file).toString();
     let lines = contents.split('\n')
 
