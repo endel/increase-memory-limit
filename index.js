@@ -14,6 +14,9 @@ glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
     if (!stat.isFile()) {
       return;
     }
+    if (file.indexOf('increase-memory-limit') >= 0) {
+      return;
+    }
     let contents = fs.readFileSync(file).toString();
     let lines = contents.split('\n')
 
