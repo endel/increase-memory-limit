@@ -1,3 +1,7 @@
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/Pa34TYK6ySj3zGr7u124Dgnn/endel/increase-memory-limit'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/Pa34TYK6ySj3zGr7u124Dgnn/endel/increase-memory-limit.svg' />
+</a>
+
 increase-memory-limit
 ===
 
