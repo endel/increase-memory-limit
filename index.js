@@ -27,7 +27,7 @@ glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
       if (line.startsWith("if [") || line.startsWith("@IF")) {
         patchedContents += line + "\n";
       } else {
-        patchedContents += line.replace(/node\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/, `node --max-old-space-size=${maxOldSpaceSice}`) + "\n";
+        patchedContents += line.replace(/node(\.exe)?\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/, `node$1 --max-old-space-size=${maxOldSpaceSice}`) + "\n";
       }
     }
 
