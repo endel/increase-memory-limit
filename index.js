@@ -17,6 +17,11 @@ glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
     if (file.indexOf('increase-memory-limit') >= 0) {
       return;
     }
+    // build scripts will hand in LIMIT via cross-env
+    // avoid updating it while we are running it
+    if (file.indexOf('cross-env') >= 0) {
+      return;
+    }
     let contents = fs.readFileSync(file).toString();
     let lines = contents.split('\n')
 
