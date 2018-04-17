@@ -1,7 +1,7 @@
 # DEPRECATION NOTICE
 
 As of Node.js v8.0 shipped August 2017, you can now use the `NODE_OPTIONS`
-environment variable to set the max_old_space_size globally.
+environment variable to set the max_old_space_size globally. (#19)
 
 ```
 export NODE_OPTIONS=--max_old_space_size=4096
