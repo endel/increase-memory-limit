@@ -3,7 +3,7 @@ const path = require('path');
 const glob = require('glob');
 const fs = require('fs');
 
-const maxOldSpaceSize = process.env.LIMIT || 10240;
+const maxOldSpaceSice = process.env.LIMIT || 10240;
 const cwd = process.cwd() + path.sep;
 
 glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
@@ -29,10 +29,10 @@ glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
 
     for (var index = 0; index < lines.length; index++) {
       var line = lines[index];
-      if (line.startsWith("if [") || line.startsWith("@IF")) {
+      if (line.startsWith("if [") || line.startsWith("@IF") || line.indexOf ('has_node') !== -1) {
         patchedContents += line + "\n";
       } else {
-        patchedContents += line.replace(/node(\.exe)?\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/, `node$1 --max-old-space-size=${maxOldSpaceSize}`) + "\n";
+        patchedContents += line.replace(/node(\.exe)?\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/, `node$1 --max-old-space-size=${maxOldSpaceSice}`) + "\n";
       }
     }
 
