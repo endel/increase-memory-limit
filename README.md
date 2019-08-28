@@ -32,6 +32,8 @@ Run from the root location of your project:
 ```
 increase-memory-limit
 ```
+Optional parameter 
+ * --hideOutput - Hide output of files which has been written
 
 Running from NPM task
 ---
