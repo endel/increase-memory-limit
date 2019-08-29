@@ -4,6 +4,7 @@ const glob = require('glob');
 const fs = require('fs');
 
 const maxOldSpaceSize = process.env.LIMIT || 10240;
+const hideChangeFileOutput = process.argv.indexOf('--hideOutput') > -1;
 const cwd = process.cwd() + path.sep;
 
 glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
@@ -37,7 +38,10 @@ glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
     }
 
     fs.writeFileSync(file, patchedContents);
-    console.log(`'${file.replace(cwd, "")}'`, "written successfully.");
+    if(!hideChangeFileOutput) {
+      console.log(`'${file.replace(cwd, "")}'`, "written successfully.");
+    }
+    
   });
 
 });
