@@ -11,11 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cklwblove/increase-memory-limit.git"
+    "url": "https://github.com/endel/increase-memory-limit.git"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
+    "registry": "https://registry.npmjs.org/"
   },
   "author": "Endel Dreyer",
   "license": "ISC",
