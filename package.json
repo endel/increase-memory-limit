@@ -1,5 +1,5 @@
 {
-  "name": "@liwb/increase-memory-limit",
+  "name": "increase-memory-limit",
   "version": "1.0.8",
   "description": "Increase memory limit for local node binaries ('max-old-space-size')",
   "main": "index.js",
@@ -17,7 +17,7 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "author": "liwb",
+  "author": "Endel Dreyer",
   "license": "ISC",
   "dependencies": {
     "glob": "^7.1.1"
