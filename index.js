@@ -28,13 +28,24 @@ glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
     let patchedContents = "";
 
     for (var index = 0; index < lines.length; index++) {
-      var line = lines[index];
-      if (line.startsWith("if [") || line.startsWith("@IF") || line.indexOf ('has_node') !== -1) {
-        patchedContents += line + "\n";
-      } else {
-        patchedContents += line.replace(/node(\.exe)?\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/, `node$1 --max-old-space-size=${maxOldSpaceSize}`) + "\n";
-      }
-    }
+		var line = lines[index];
+    // FIX 修复vue-cli-service的问题
+    // line.startsWith('const requiredVersion =')
+		if (
+			line.startsWith('if [') ||
+			line.startsWith('@IF') ||
+			line.indexOf('has_node') !== -1 ||
+			line.startsWith('const requiredVersion =')
+		) {
+			patchedContents += line + '\n';
+		} else {
+			patchedContents +=
+				line.replace(
+					/node(\.exe)?\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/,
+					`node$1 --max-old-space-size=${maxOldSpaceSize}`
+				) + '\n';
+		}
+	}
 
     fs.writeFileSync(file, patchedContents);
     console.log(`'${file.replace(cwd, "")}'`, "written successfully.");
