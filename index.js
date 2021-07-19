@@ -32,7 +32,7 @@ glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
       if (line.startsWith("if [") || line.startsWith("@IF") || line.indexOf ('has_node') !== -1) {
         patchedContents += line + "\n";
       } else {
-        patchedContents += line.replace(/node(\.exe)?\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/, `node$1 --max-old-space-size=${maxOldSpaceSize}`) + "\n";
+        patchedContents += line.replace(/ node(\.exe)?\b(?: \-\-max\-old\-space\-size\=[0-9]+)?/, ` node$1 --max-old-space-size=${maxOldSpaceSize}`) + "\n";
       }
     }
 
