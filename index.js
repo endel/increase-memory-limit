@@ -36,6 +36,8 @@ glob(path.join(cwd, "node_modules", ".bin", "*"), function (err, files) {
       }
     }
 
+    patchedContents = patchedContents.replace(/\"\%\_prog%\"/g, "%_prog%");
+    
     fs.writeFileSync(file, patchedContents);
     console.log(`'${file.replace(cwd, "")}'`, "written successfully.");
   });
